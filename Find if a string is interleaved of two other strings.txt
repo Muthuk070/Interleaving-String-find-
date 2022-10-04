@@ -1,0 +1,47 @@
+                                             Find if a string is interleaved of two other strings
+
+
+
+public class test2{
+	
+	public static String call(int i,String a) {
+	    String r="";
+		for(int j=0;j<=a.length()-1;j++) {
+			if(j>i) {
+				r+=a.charAt(j);
+			}
+		}
+		return r;
+	}
+	
+	public static void main (String[] args) {
+		String a="XXY";
+		String b="XXZ";
+		
+		String c="XXXXZY";
+		
+		int l=0;
+		for(int i=0;i<=a.length()-1;i++) {
+			String t=a.substring(0,i+1);
+			String u=call(i,a);
+			String p=t+b+u;
+			
+			if(p.equals(c)) {
+				System.out.println("Interleaved");
+				l++;
+				System.exit(2);
+			}
+		}
+		
+		String h=b+a;
+		if(h.equals(c)) {
+			System.out.println("Interleaved");
+		}
+		else if(l==0) {
+			System.out.println("not Interleaved");
+		}
+	}
+}
+
+OUTPUT:
+Interleaved
